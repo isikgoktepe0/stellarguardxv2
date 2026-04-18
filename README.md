@@ -190,3 +190,9 @@ Click **"Load demo address"** in the UI to auto-fill it.
 ## License
 
 MIT — built for the Stellar Zonguldak Workshop Challenge 🚀
+
+
+
+LOOM LİNK: https://www.loom.com/share/47f852cf773b4ea3849dbba89ae829ed
+
+
