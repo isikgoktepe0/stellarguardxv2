@@ -23,13 +23,15 @@ StellarGuard X fetches a wallet's payment history from the Stellar Horizon API, 
 
 ## Tech Stack
 
-| Layer    | Technology                        |
-|----------|-----------------------------------|
-| Frontend | React 18 + Vite                   |
-| Backend  | Node.js + Express                 |
-| API      | Stellar Horizon (public endpoint) |
-| Graph    | Custom SVG (no extra library)     |
-| Styling  | Plain CSS dark theme              |
+| Layer       | Technology                        |
+|-------------|-----------------------------------|
+| Frontend    | React 18 + Vite                   |
+| Backend     | Node.js + Express                 |
+| Smart Contract | Soroban (Rust)                 |
+| Blockchain  | Stellar Network                   |
+| API         | Stellar Horizon + Soroban RPC     |
+| Graph       | Custom SVG (no extra library)     |
+| Styling     | Plain CSS dark theme              |
 
 ---
 
@@ -37,10 +39,18 @@ StellarGuard X fetches a wallet's payment history from the Stellar Horizon API, 
 
 ```
 stellar-guard-x/
+├── contracts/                 # Soroban smart contracts
+│   ├── src/
+│   │   └── lib.rs            # Subscription contract (Rust)
+│   ├── Cargo.toml
+│   ├── deploy.sh             # Deployment script
+│   └── README.md
 ├── backend/
 │   ├── server.js              # Express app + /analyze endpoint
 │   ├── services/
-│   │   └── horizon.js         # Horizon API client
+│   │   ├── horizon.js         # Horizon API client
+│   │   ├── stellarPayment.js  # XLM payment logic
+│   │   └── contractSubscription.js # Contract integration
 │   └── utils/
 │       └── riskEngine.js      # Risk scoring logic
 ├── frontend/
@@ -56,6 +66,7 @@ stellar-guard-x/
 │           ├── RiskScore.jsx
 │           ├── RiskReasons.jsx
 │           └── WalletGraph.jsx
+├── DEPLOYMENT.md              # Contract deployment guide
 └── README.md
 ```
 
@@ -176,6 +187,17 @@ Click **"Load demo address"** in the UI to auto-fill it.
 ### 💸 Payment System
 ![Payment](./screenshots/payment.png)
 
+## Smart Contract
+
+StellarGuard X includes a Soroban smart contract for on-chain subscription management:
+
+- ✅ **Subscribe**: 30-day subscription with 100 wallet scans
+- ✅ **Check Status**: Verify active subscriptions on-chain
+- ✅ **Consume Scans**: Decrement scan credits automatically
+- ✅ **Renew**: Extend subscription and add more scans
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment instructions.
+
 ## Future Improvements
 
 - [ ] Multi-hop graph traversal (analyze connected wallets)
@@ -184,6 +206,7 @@ Click **"Load demo address"** in the UI to auto-fill it.
 - [ ] Wallet watchlist / saved reports
 - [ ] On-chain memo text analysis for scam keywords
 - [ ] Export report as PDF
+- [x] Soroban smart contract for subscriptions
 
 ---
 
