@@ -5,6 +5,7 @@
 ---
 
 ## 🚀 Live Smart Contract (Testnet)
+<img width="1052" height="320" alt="image" src="https://github.com/user-attachments/assets/a08848d7-d422-4b7e-b90c-a60d3045190d" />
 
 **Contract ID:** `CB7K36JL25A4VO67X6FLIKCCGA2YJWI35CXZZGZ6FBV3UOQX6LLSPN5Q`
 
