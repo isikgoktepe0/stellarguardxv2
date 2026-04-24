@@ -4,6 +4,24 @@
 
 ---
 
+## 🚀 Live Smart Contract (Testnet)
+
+**Contract ID:** `CB7K36JL25A4VO67X6FLIKCCGA2YJWI35CXZZGZ6FBV3UOQX6LLSPN5Q`
+
+**Deployer Address:** `GD4DKHCWBTQM6TMZHZT75WGC5OWMSKQETGUL42AEJGNBUYYTRZBJWEPT`
+
+**Network:** Stellar Testnet
+
+**Explorer Links:**
+- 🔗 [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CB7K36JL25A4VO67X6FLIKCCGA2YJWI35CXZZGZ6FBV3UOQX6LLSPN5Q)
+- 🔗 [View on Stellar Lab](https://lab.stellar.org/r/testnet/contract/CB7K36JL25A4VO67X6FLIKCCGA2YJWI35CXZZGZ6FBV3UOQX6LLSPN5Q)
+
+**Deployment Transactions:**
+- Upload WASM: [3db825142ba902724ef213b5a07415a9ff58e07531ad53b3afb830ff382c812e](https://stellar.expert/explorer/testnet/tx/3db825142ba902724ef213b5a07415a9ff58e07531ad53b3afb830ff382c812e)
+- Deploy Contract: [a466532d5334a7b79e76b79d4b1e1be3a9b584f1344047f8ffa0f20556a073df](https://stellar.expert/explorer/testnet/tx/a466532d5334a7b79e76b79d4b1e1be3a9b584f1344047f8ffa0f20556a073df)
+
+---
+
 ## Description
 
 StellarGuard X fetches a wallet's payment history from the Stellar Horizon API, runs it through a multi-rule risk engine, and presents the results as a clean dashboard with a risk score, plain-language explanations, and an interactive transaction network graph.
@@ -189,16 +207,23 @@ Click **"Load demo address"** in the UI to auto-fill it.
 
 ## Smart Contract
 
-StellarGuard X includes a Soroban smart contract for on-chain subscription management:
+StellarGuard X includes a **deployed Soroban smart contract** for on-chain subscription management:
 
+**Contract ID:** `CB7K36JL25A4VO67X6FLIKCCGA2YJWI35CXZZGZ6FBV3UOQX6LLSPN5Q`
+
+### Features:
 - ✅ **Subscribe**: 30-day subscription with 100 wallet scans
 - ✅ **Check Status**: Verify active subscriptions on-chain
 - ✅ **Consume Scans**: Decrement scan credits automatically
 - ✅ **Renew**: Extend subscription and add more scans
+- ✅ **Persistent Storage**: All data stored on Stellar blockchain
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for deployment instructions.
+### Documentation:
+- 📋 [Contract Information & Transactions](./CONTRACT_INFO.md)
+- 🚀 [Deployment Guide](./DEPLOYMENT.md)
+- ⚡ [Quick Start](./contracts/QUICKSTART.md)
 
-## Future Improvements
+---
 
 - [ ] Multi-hop graph traversal (analyze connected wallets)
 - [ ] Asset diversity analysis (XLM vs custom tokens)

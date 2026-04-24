@@ -23,7 +23,7 @@ impl SubscriptionContract {
     pub fn subscribe(env: Env, subscriber: Address) -> Subscription {
         subscriber.require_auth();
 
-        let current_ledger = env.ledger().sequence();
+        let current_ledger = env.ledger().sequence() as u64;
         let expires_at = current_ledger + 518_400; // ~30 days
 
         let subscription = Subscription {
@@ -45,7 +45,7 @@ impl SubscriptionContract {
         let key = (SUBSCRIPTION, subscriber);
         
         if let Some(sub) = env.storage().persistent().get::<_, Subscription>(&key) {
-            let current_ledger = env.ledger().sequence();
+            let current_ledger = env.ledger().sequence() as u64;
             sub.expires_at > current_ledger && sub.scans_remaining > 0
         } else {
             false
@@ -63,7 +63,7 @@ impl SubscriptionContract {
             .get::<_, Subscription>(&key)
             .expect("No subscription found");
 
-        let current_ledger = env.ledger().sequence();
+        let current_ledger = env.ledger().sequence() as u64;
         assert!(sub.expires_at > current_ledger, "Subscription expired");
         assert!(sub.scans_remaining > 0, "No scans remaining");
 
@@ -87,7 +87,7 @@ impl SubscriptionContract {
         subscriber.require_auth();
 
         let key = (SUBSCRIPTION, subscriber.clone());
-        let current_ledger = env.ledger().sequence();
+        let current_ledger = env.ledger().sequence() as u64;
 
         let mut sub = if let Some(existing) = env.storage().persistent().get::<_, Subscription>(&key) {
             // Extend existing subscription
